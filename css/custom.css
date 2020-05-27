@@ -13,3 +13,45 @@ body {
   padding-left: 0em;
   margin-left: 0em;
 }
+
+/* label color */
+
+.input-field label {
+  color: #6C63FF;
+}
+
+/* label focus color */
+
+.input-field input[type=email]:focus+label {
+  color: #6C63FF;
+}
+
+/* label underline focus color */
+
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+/* valid color */
+
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+/* icon prefix focus color */
+
+.input-field .prefix {
+  color: #6C63FF;
+}
