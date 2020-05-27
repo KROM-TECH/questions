@@ -5386,6 +5386,10 @@ body.keyboard-focused .dropdown-content li:focus {
   background-color: rgba(76, 175, 80, 0.7)
 }
 
+.waves-effect.waves-pur .waves-ripple {
+  background-color: #6C63FF
+}
+
 .waves-effect.waves-teal .waves-ripple {
   background-color: rgba(0, 150, 136, 0.7)
 }
