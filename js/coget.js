@@ -1,4 +1,4 @@
-const courses = document.getElementById('slide-out')
+const courses = document.getElementById('cocontent')
 
 document.getElementById('coget').addEventListener('click', function (e) {
   e.preventDefault();
@@ -8,9 +8,10 @@ document.getElementById('coget').addEventListener('click', function (e) {
   const lev = document.getElementById('level').value
 
 
-  db.collection(`${uni}`).doc(`${fac}`).collection(`details`).doc(`${lev}`).get().then(function (querySnapshot) {
+
+  db.collection(`${uni}`).doc(`${fac}`).collection(`details`).get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        console.log(doc.data())
+
         loadData(doc.data())
       })
     }).then()
@@ -24,7 +25,6 @@ document.getElementById('coget').addEventListener('click', function (e) {
 
 
 function loadData(data) {
-  console.log(data)
   const html = `
 
       <li>
