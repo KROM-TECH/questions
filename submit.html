@@ -79,37 +79,27 @@
       <label>Select Your Level</label>
     </div>
 
+    <div class="row">
+      <div class="input-field " style="margin: 3rem;">
+        <input id="email" type="email" class="validate">
+        <label for="email">Course Title</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field " style="margin: 3rem;">
+        <input id="email" type="email" class="validate">
+        <label for="email">Course Outline content</label>
+      </div>
+    </div>
+
     <div class="row center">
-      <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-trigger" data-target="slide-out"
-        style="border-radius: 5rem; width: 10rem;">View</a>
+      <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-trigger" id="cosubmit"
+        style="border-radius: 5rem; width: 10rem;">Submit</a>
     </div>
   </section>
 
-  <section>
 
-    <ul class="collapsible sidenav side-menu popout center" id="slide-out" style="width: 100%;">
-      <li><a class="subheader">Course outline for systems engineering</a></li> <br> <br>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg113</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg115</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg117</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-
-      <div class="row center">
-        <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-close" data-target="slide-out"
-          style="border-radius: 5rem; width: 10rem; margin: 3rem;">Done</a>
-      </div>
-    </ul>
-
-
-  </section>
 
   <div class="row">
 
@@ -124,14 +114,7 @@
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // courses menu
-      const menus = document.querySelectorAll('.side-menu');
-      M.Sidenav.init(menus, { edge: 'right' });
 
-    });
-  </script>
   <script>  M.AutoInit();</script>
 </body>
 
