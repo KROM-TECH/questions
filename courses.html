@@ -36,20 +36,20 @@
   <p class="center">You currently signed in as <span class="blue-text" id="usermail">akpananthony@gmail.com</span></p>
 
   <section>
-
-
+  
+  
     <div class="input-field col " style="margin: 3rem;">
-      <select class="icons">
+      <select class="icons" id="university">
         <option value="" disabled selected>Choose your option</option>
-        <option value="unilag" data-icon="images/sample-1.jpg" class="left">University of Lagos</option>
-        <option value="ui" data-icon="images/office.jpg" class="left">University of Ibadan</option>
+        <option value="unilag" class="left">University of Lagos</option>
+        <option value="ui" class="left">University of Ibadan</option>
         <option value="uniben" class="left">University of Benin</option>
       </select>
       <label>Select Your University</label>
     </div>
-
+  
     <div class="input-field col " style="margin: 3rem;">
-      <select class="icons">
+      <select class="icons" id="faculty">
         <option value="" disabled selected>Choose your option</option>
         <option value="art" class="left">Arts</option>
         <option value="bms" class="left">Basic Medical Sciences</option>
@@ -66,15 +66,15 @@
       </select>
       <label>Select Your Faculty</label>
     </div>
-
+  
     <div class="input-field col " style="margin: 3rem;">
-      <select class="icons">
+      <select class="icons" id="level">
         <option value="" disabled selected>Choose your option</option>
-        <option value="" class="left">Year 1</option>
-        <option value="" class="left">Year 2</option>
-        <option value="" class="left">Year 3</option>
-        <option value="" class="left">Year 4</option>
-        <option value="" class="left">Year 5</option>
+        <option value="Year1" class="left">Year 1</option>
+        <option value="Year2" class="left">Year 2</option>
+        <option value="Year3" class="left">Year 3</option>
+        <option value="Year4" class="left">Year 4</option>
+        <option value="Year5" class="left">Year 5</option>
       </select>
       <label>Select Your Level</label>
     </div>
@@ -89,21 +89,10 @@
 
     <ul class="collapsible sidenav side-menu popout center" id="slide-out" style="width: 100%;">
       <li><a class="subheader">Course outline for systems engineering</a></li> <br> <br>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg113</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg115</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>geg117</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
+
 
       <div class="row center">
-        <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-close" data-target="slide-out"
+        <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-close" id="coget"
           style="border-radius: 5rem; width: 10rem; margin: 3rem;">Done</a>
       </div>
     </ul>
@@ -133,6 +122,16 @@
     });
   </script>
   <script>  M.AutoInit();</script>
+    <!--The core Firebase JS SDK is always required and must be listed first-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <!--TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-functions.js"></script>
+    <script type="text/javascript" src="js/fireconfig.js"></script>
+    <script type="text/javascript" src="js/coget.js"></script>
 </body>
 
 </html>
