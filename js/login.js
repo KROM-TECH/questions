@@ -86,3 +86,4 @@ document.getElementById('twitterin').addEventListener('click', function () {
     document.getElementById('signinError').innerHTML = error.credential;
   });
 })
+

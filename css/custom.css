@@ -9,7 +9,8 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: rgb(75, 75, 75);
+  height: 15%;
+  background-color: white;
   padding-left: 0em;
   margin-left: 0em;
 }
