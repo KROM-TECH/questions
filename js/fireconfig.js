@@ -14,4 +14,5 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  db = firebase.firestore()
+  db = firebase.firestore();
+  auth = firebase.auth()
