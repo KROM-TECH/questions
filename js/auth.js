@@ -4,6 +4,11 @@ firebase.auth().onAuthStateChanged(function (user) {
   console.log(user)
   if (user) {
     // User is signed in.
+    if (user.emailVerified) {
+    }
+    else {
+      window.location = './verify.html'
+    }
     document.getElementById('usermail').innerHTML = user.email
 
   } else {
@@ -11,17 +16,6 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-function checkverified() {
-  var user = firebase.auth().currentUser;
-  if (user.emailVerified) {
-    window.location = './home.html'
-  }
-  else {
-    window.location = './verify.html'
-  }
-}
 
-
-checkverified()
 
 
