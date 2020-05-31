@@ -10,7 +10,7 @@ document.getElementById('verify').addEventListener('click', function () {
     document.getElementById('verifymsg').innerHTML = 'verification sent, check your email to verify'
   }).catch(function (error) {
     // An error happened.
-    document.getElementById('verifymsg').innerHTML = error.message
+    document.getElementById('verifymsg').innerHTML = 'Something went wrong'
   });
 
 
