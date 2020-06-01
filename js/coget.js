@@ -9,28 +9,28 @@ document.getElementById('coget').addEventListener('click', function (e) {
 
 
 
-  db.collection(`${uni}`).doc(`${fac}`).collection(`details`).get().then(function (querySnapshot) {
-      querySnapshot.forEach(function (doc) {
+  db.collection(`${uni}`).doc(`${fac}`).collection(`${lev}`).get().then(function (querySnapshot) {
+    querySnapshot.forEach(function (doc) {
 
-        loadData(doc.data())
-      })
-    }).then()
-    .catch((err)=>{console.log(err)})
-  
+      loadData(doc.data())
+    })
+  }).then()
+    .catch((err) => { console.log(err) })
+
 
 })
 
 
-
-
-
 function loadData(data) {
+  console.log(data)
   const html = `
 
-      <li>
-        <div class="collapsible-header"><i class="material-icons">book</i>${data.title}</div>
-        <div class="collapsible-body"><span>${data.content}</span></div>
-      </li>
+
+              <li>
+                <div class="collapsible-header"><i class="material-icons">book</i>${data.title} <span
+                    class="pur-text" style="margin-left: 50%;">${data.semester}</span></div>
+                <div class="collapsible-body"><span>${data.content}</span></div>
+              </li>
 
     `;
   courses.innerHTML += html

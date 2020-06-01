@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/custom.css" media="screen,projection" />
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>question</title>
+</head>
+
+<nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Profile</a></li>
+      <li><a href="./price.html">price</a></li>
+      <li><a href="./payment.html">payment</a></li>
+      <li><a href="./support.html">Online Support</a></li>
+      <li><a id="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <div class="pur" style=" height: 100%;"></div>
+      </div>
+      <a href=""><img class="circle" src="./img/profile.png"></a>
+      <a href="#name"><span class="white-text name"></span></a>
+      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+    </div>
+  </li>
+  <li><a href="#">Profile</a></li>
+  <li><a href="./price.html">price</a></li>
+  <li><a href="./payment.html">payment</a></li>
+  <li><a href="./support.html">Online Support</a></li>
+  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
+</ul>
+
+<body class="grey lighten-2">
+<div class=" row center">
+<a href=""><img class="circle responsive-img" src="./img/profile.png" style="width:200px;"></a>
+</div>
+<div class=" row center">
+<h5>Subscription:- <span class="green-text">free sem</span></h5>
+</div>
+<br> <br>
+<div class="card row ">
+<h5 style="padding: 0.5rem;">Display Name: <span class="right green-text">Nill</span></h5>
+</div>
+<div class="card row ">
+<h5 style="padding: 0.5rem;">Email: <span class="right green-text" id="usermail2">Nill</span></h5>
+</div>
+
+
+
+  </div>
+
+
+
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>  M.AutoInit();</script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+  <!--TODO: Add SDKs for Firebase products that you want to use
+                         https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-functions.js"></script>
+  <script src="./js/fireconfig.js"></script>
+  <script src="./js/auth.js"></script>
+  <script>
+    
+  </script>
+
+</body>
+
+</html>
