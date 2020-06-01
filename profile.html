@@ -17,6 +17,7 @@
     <a href="#!" class="brand-logo">Logo</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
+      <li><a href="./home.html">Home</a></li>
       <li><a href="./profile.html">Profile</a></li>
       <li><a href="./price.html">price</a></li>
       <li><a href="./payment.html">payment</a></li>
@@ -37,6 +38,7 @@
       <a href="#email"><span class="white-text email" id="usermail"></span></a>
     </div>
   </li>
+  <li><a href="./home.html">Home</a></li>
   <li><a href="./profile.html">Profile</a></li>
   <li><a href="./price.html">price</a></li>
   <li><a href="./payment.html">payment</a></li>
@@ -46,15 +48,13 @@
 
 <body class="grey lighten-2">
   <div class=" row center">
-    <a href=""><img id="profileImg" class="circle responsive-img" src="./img/profile.png" style="width:200px;"></a>
+    <a href=""><img id="profileImg2" class="circle responsive-img" src="./img/profile.png" style="width:200px;"></a>
   </div>
   <div class=" row center">
     <h5>Subscription:- <span class="green-text">free sem</span></h5>
   </div>
   <br> <br>
-  <div class="card row ">
-    <h5 style="padding: 0.5rem;">Full Name: <span class="right green-text" id="usernam">Nill</span></h5>
-  </div>
+
   <div class="card row ">
     <h5 style="padding: 0.5rem;">Display Name: <span class="right green-text" id="userdis">Nill</span></h5>
   </div>
@@ -67,11 +67,41 @@
   </div>
 
   <div class="row center">
-    <a class="waves-effect waves-light btn btn-large pur white-text"
+    <a class="waves-effect waves-light btn btn-large pur white-text modal-trigger" href="#modal1"
       style="border-radius: 5rem; width: 10rem; margin: 3rem;">Update</a>
   </div>
 
+  <!-- Modal structure -->
+  <div id="modal1" class="modal">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat right">Cancel</a>
+    <div class="modal-content center">
+      <h5>Profile Update</h5>
+      <p>fill in required details</p>
 
+      <div class="input-field ">
+        <input id="disName" type="text" placeholder="display Name" class="validate" required>
+        <label for="disName">Display Name</label>
+      </div>
+
+      <div class="input-field ">
+        <input id="pmail" type="text" placeholder="Email" class="validate" required>
+        <label for="pmail">Email</label>
+      </div>
+
+      <div class="input-field ">
+        <input id="phoneNum" type="text" placeholder="phone Number" class="validate" required>
+        <label for="phoneNum">Phone Number</label>
+      </div>
+      <div class="row center pur-text">
+        <p id="updateStat"></p>
+      </div>
+      <div class="row center">
+        <button type="submit" id="update" class="waves-effect waves-light btn btn-large pur-text white">
+          confirm</button>
+      </div>
+    </div>
+
+  </div>
 
   </div>
 
@@ -83,59 +113,14 @@
   <script>  M.AutoInit();</script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
   <!--TODO: Add SDKs for Firebase products that you want to use
-                         https://firebase.google.com/docs/web/setup#available-libraries -->
+   https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-functions.js"></script>
   <script src="./js/fireconfig.js"></script>
-  <script>
-    firebase.auth().onAuthStateChanged(function (user) {
-      console.log(user)
-      if (user) {
-        // User is signed in.
-        if (user.email == null) {
+  <script src="./js/profile.js"></script>
 
-          document.getElementById('userdis').innerHTML = user.displayName
-          document.getElementById('usermail2').innerHTML = user.email
-          document.getElementById('usernum').innerHTML = user.phoneNumber
-         document.getElementById("profileImg").src = user.photoURL;
-
-        }
-        else if(user.emailVerified) {
-          document.getElementById('usermail').innerHTML = user.email
-          document.getElementById('usermail2').innerHTML = user.email
-        }
-        else {
-          window.location = './verify.html'
-        }
-        document.getElementById('usermail').innerHTML = user.email
-
-      } else {
-        window.location = './login.html'
-      }
-    });
-
-
-    document.getElementById('signout').addEventListener('click', function () {
-      firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-        window.location = './login.html'
-      }).catch(function (error) {
-        // An error happened.
-      });
-    })
-
-    document.getElementById('signout2').addEventListener('click', function () {
-      firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-        window.location = './login.html'
-      }).catch(function (error) {
-        // An error happened.
-      });
-    })
-
-  </script>
 
 </body>
 
