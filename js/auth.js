@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if(user.email == null){
       window.location = './profile.html'
     }
-    if (user.emailVerified) {
+    else if (user.emailVerified) {
       document.getElementById('usermail').innerHTML = user.email
       document.getElementById('usermail2').innerHTML = user.email
       document.getElementById("profileImg").src = user.photoURL;
