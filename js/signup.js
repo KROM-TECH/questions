@@ -85,6 +85,3 @@ document.getElementById('twitterin').addEventListener('click', function () {
   });
 })
 
-document.getElementById('signout').addEventListener('click', function () {
-
-})

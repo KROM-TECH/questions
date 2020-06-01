@@ -4,12 +4,16 @@ firebase.auth().onAuthStateChanged(function (user) {
   console.log(user)
   if (user) {
     // User is signed in.
+    if(user.email == null){
+      window.location = './profile.html'
+    }
     if (user.emailVerified) {
       document.getElementById('usermail').innerHTML = user.email
       document.getElementById('usermail2').innerHTML = user.email
+      document.getElementById("profileImg").src = user.photoURL;
     }
     else {
-      window.locatio = './verify.html'
+      window.location = './verify.html'
     }
     document.getElementById('usermail').innerHTML = user.email
 

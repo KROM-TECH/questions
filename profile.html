@@ -17,7 +17,7 @@
     <a href="#!" class="brand-logo">Logo</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Profile</a></li>
+      <li><a href="./profile.html">Profile</a></li>
       <li><a href="./price.html">price</a></li>
       <li><a href="./payment.html">payment</a></li>
       <li><a href="./support.html">Online Support</a></li>
@@ -32,12 +32,12 @@
       <div class="background">
         <div class="pur" style=" height: 100%;"></div>
       </div>
-      <a href=""><img class="circle" src="./img/profile.png"></a>
+      <a href=""><img id="profileImg" class="circle" src="./img/profile.png"></a>
       <a href="#name"><span class="white-text name"></span></a>
       <a href="#email"><span class="white-text email" id="usermail"></span></a>
     </div>
   </li>
-  <li><a href="#">Profile</a></li>
+  <li><a href="./profile.html">Profile</a></li>
   <li><a href="./price.html">price</a></li>
   <li><a href="./payment.html">payment</a></li>
   <li><a href="./support.html">Online Support</a></li>
@@ -45,19 +45,31 @@
 </ul>
 
 <body class="grey lighten-2">
-<div class=" row center">
-<a href=""><img class="circle responsive-img" src="./img/profile.png" style="width:200px;"></a>
-</div>
-<div class=" row center">
-<h5>Subscription:- <span class="green-text">free sem</span></h5>
-</div>
-<br> <br>
-<div class="card row ">
-<h5 style="padding: 0.5rem;">Display Name: <span class="right green-text">Nill</span></h5>
-</div>
-<div class="card row ">
-<h5 style="padding: 0.5rem;">Email: <span class="right green-text" id="usermail2">Nill</span></h5>
-</div>
+  <div class=" row center">
+    <a href=""><img id="profileImg" class="circle responsive-img" src="./img/profile.png" style="width:200px;"></a>
+  </div>
+  <div class=" row center">
+    <h5>Subscription:- <span class="green-text">free sem</span></h5>
+  </div>
+  <br> <br>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Full Name: <span class="right green-text" id="usernam">Nill</span></h5>
+  </div>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Display Name: <span class="right green-text" id="userdis">Nill</span></h5>
+  </div>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Email: <span class="right green-text" id="usermail2">Nill</span></h5>
+  </div>
+  </div>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Phone Number: <span class="right green-text" id="usernum">Nill</span></h5>
+  </div>
+
+  <div class="row center">
+    <a class="waves-effect waves-light btn btn-large pur white-text"
+      style="border-radius: 5rem; width: 10rem; margin: 3rem;">Update</a>
+  </div>
 
 
 
@@ -77,9 +89,52 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-functions.js"></script>
   <script src="./js/fireconfig.js"></script>
-  <script src="./js/auth.js"></script>
   <script>
-    
+    firebase.auth().onAuthStateChanged(function (user) {
+      console.log(user)
+      if (user) {
+        // User is signed in.
+        if (user.email == null) {
+
+          document.getElementById('userdis').innerHTML = user.displayName
+          document.getElementById('usermail2').innerHTML = user.email
+          document.getElementById('usernum').innerHTML = user.phoneNumber
+         document.getElementById("profileImg").src = user.photoURL;
+
+        }
+        else if(user.emailVerified) {
+          document.getElementById('usermail').innerHTML = user.email
+          document.getElementById('usermail2').innerHTML = user.email
+        }
+        else {
+          window.location = './verify.html'
+        }
+        document.getElementById('usermail').innerHTML = user.email
+
+      } else {
+        window.location = './login.html'
+      }
+    });
+
+
+    document.getElementById('signout').addEventListener('click', function () {
+      firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+        window.location = './login.html'
+      }).catch(function (error) {
+        // An error happened.
+      });
+    })
+
+    document.getElementById('signout2').addEventListener('click', function () {
+      firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+        window.location = './login.html'
+      }).catch(function (error) {
+        // An error happened.
+      });
+    })
+
   </script>
 
 </body>
