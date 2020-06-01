@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       document.getElementById('usermail2').innerHTML = user.email
     }
     else {
-      window.location = './verify.html'
+      window.locatio = './verify.html'
     }
     document.getElementById('usermail').innerHTML = user.email
 
