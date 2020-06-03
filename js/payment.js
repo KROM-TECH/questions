@@ -31,7 +31,7 @@ var txRef = "MG-149840860099"; // this is variable to hold the uniqeue transacti
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("payment").addEventListener("click", function (e) {
-    var PBFKey = "FLWPUBK-02ebd0340229d2832bad4104252100bf-X";
+    var PBFKey = "FLWPUBK-793faff5bca2def5d143527c48d85356-X";
     var plan = document.getElementById('plan').value;
     var email = document.getElementById('email').value;
     var fullName = document.getElementById('fullName').value;
