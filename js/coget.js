@@ -3,14 +3,18 @@ const courses = document.getElementById('cocontent')
 document.getElementById('coget').addEventListener('click', function (e) {
   e.preventDefault();
 
+  courses.innerHTML = ""; //clear the DOM each time there is a database query inorder to remove old results
+
   const uni = document.getElementById('university').value
   const fac = document.getElementById('faculty').value
   const lev = document.getElementById('level').value
 
 
-
   db.collection(`${uni}`).doc(`${fac}`).collection(`${lev}`).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
+      if (querySnapshot.empty) {
+        courses.innerHTML = `<h4 class="center red-text">Oops, No result found</h4>`
+      }
 
       loadData(doc.data())
     })

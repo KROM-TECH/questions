@@ -50,56 +50,42 @@
   <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
 
   <section>
-    <a href="./courses.html" class="pur-text">
-      <div class="row white hoverable" style="  border-radius: 1rem; margin: 1rem;">
-        <div class="col l3 s3 m3">
-          <br>
-          <img src="./img/CO.png" alt="course outline" class='responsive-img'>
-        </div>
-
-        <div class="col l9 s9 m9">
-          <h3>Course Outline</h3>
-          <p>get course outline for different university courses</p>
-        </div>
-      </div>
-    </a>
-
-    <a href="./pq.html" class="pur-text">
-      <div class="row white hoverable" href="#" style=" border-radius: 1rem; margin: 1rem; ">
-        <div class="col l3 s3 m3">
-          <br>
-          <img src="./img/problem.svg" alt="past questions" class="responsive-img">
-        </div>
-
-        <div class="col l9 s9 m9">
-          <h3>Past Questions</h3>
-          <p>for a minimal fee get up to date past questions with solutions</p>
-        </div>
-      </div>
-    </a>
-
-    <a href="./support.html" class="pur-text">
-      <div class="row white hoverable" style=" border-radius: 1rem; margin: 1rem;">
-        <div class="col l3 s3 m3">
-          <br>
-          <img src="./img/teacher.svg" alt="online support" class="responsive-img ">
-        </div>
-
-        <div class="col l9 s9 m9">
-          <h3>Online Support</h3>
-          <p>24/7 online support for any equation that might tricker than expected</p>
-        </div>
-      </div>
-    </a>
-
-    <button type="button" style="cursor:pointer;" value="Pay Now" id="submit">Pay Now</button>
 
 
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="plan">
+        <option value="" disabled selected>free Sem plan</option>
+        <option value="2500" class="left">Basic Sem Plan</option>
+        <option value="3500" class=" left">Premium Sem plan</option>
+      </select>
+      <label>Select Your Sem Plan</label>
+    </div>
+
+    <div class="input-field" style="margin: 3rem;">
+      <input id="email" type="text" placeholder="Email" class="validate" required>
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-field" style="margin: 3rem;">
+      <input id="fullName" type="text" placeholder="Email" class="validate" required>
+      <label for="fullName">Full Name</label>
+    </div>
+
+    <div class="input-field" style="margin: 3rem;">
+      <input id="phoneNum" type="text" placeholder="phone Number" class="validate" required>
+      <label for="phoneNum">Phone Number</label>
+    </div>
+
+
+
+
+    <div class="row center">
+      <a class="waves-effect waves-pur btn btn-large pur-text white " id="payment"
+        style="border-radius: 5rem; width: 10rem;">Pay</a>
+    </div>
   </section>
 
-  <div class="row">
 
-  </div>
 
 
   </div>
@@ -109,20 +95,30 @@
 
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // courses menu
+      const menus = document.querySelectorAll('.side-menu');
+      M.Sidenav.init(menus, { edge: 'right' });
+
+    });
+  </script>
   <script>  M.AutoInit();</script>
+  <!--The core Firebase JS SDK is always required and must be listed first-->
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
   <!--TODO: Add SDKs for Firebase products that you want to use
-                         https://firebase.google.com/docs/web/setup#available-libraries -->
+       https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-functions.js"></script>
+  <script type="text/javascript" src="js/fireconfig.js"></script>
+  <script type="text/javascript" src="js/auth.js"></script>
   <script type="text/javascript"
     src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-  <script src="./js/fireconfig.js"></script>
-  <script src="./js/auth.js"></script>
-  <script src="./js/payment.js"></script>
 
+  <script type="text/javascript" src="js/payment.js"></script>
 </body>
 
 </html>
