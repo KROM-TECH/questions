@@ -31,7 +31,7 @@ var txRef = "MG-149840860099"; // this is variable to hold the uniqeue transacti
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("payment").addEventListener("click", function (e) {
-    var PBFKey = "FLWPUBK-793faff5bca2def5d143527c48d85356-X";
+    var PBFKey = "FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X"//FLWPUBK-793faff5bca2def5d143527c48d85356-X";   
     var plan = document.getElementById('plan').value;
     var email = document.getElementById('email').value;
     var fullName = document.getElementById('fullName').value;
@@ -40,29 +40,66 @@ document.addEventListener("DOMContentLoaded", function (event) {
       alert('you need to fill all fields before you proceed')
     }
 else{
-    // getpaidSetup is Rave's inline script function. it holds the payment data to pass to Rave.
-    getpaidSetup({
-      PBFPubKey: PBFKey,
-      customer_email: email,
-      customer_firstname: fullName,
-      amount: plan,
-      customer_phone: phone,
-      payment_method: "card,account,ussd",
-      country: "NG",
-      currency: "NGN",
-      txref: txRef, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
-      //integrity_hash: hashedValue, // pass the sha256 hashed value here.
-      onclose: function () { },
-      callback: function (response) {
-        flw_ref = response.tx.flwRef;// collect flwRef returned and pass to a 					server page to complete status check.
-        console.log("This is the response returned after a charge", response);
-        if (response.tx.chargeResponse == '00' || response.tx.chargeResponse == '0') {
-          // redirect to a success page
-        } else {
-          // redirect to a failure page.
-        }
+      const addBasicPlan = functions.httpsCallable('addBasicPlan');
+      
+      const addPremiumPlan = functions.httpsCallable('addPremiumPlan')
+      if(plan == 'basic'){
+         // getpaidSetup is Rave's inline script function. it holds the payment data to pass to Rave.
+        getpaidSetup({
+          PBFPubKey: PBFKey,
+          customer_email: email,
+          customer_firstname: fullName,
+          amount: 2500,
+          customer_phone: phone,
+          payment_method: "card,account,ussd",
+          country: "NG",
+          currency: "NGN",
+          txref: txRef, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
+          //integrity_hash: hashedValue, // pass the sha256 hashed value here.
+          onclose: function () { },
+          callback: function (response) {
+            flw_ref = response.tx.flwRef;// collect flwRef returned and pass to a 					server page to complete status check.
+            console.log("This is the response returned after a charge", response);
+            addBasicPlan({ email: email })
+            console.log('done')
+            if (response.tx.chargeResponse == '00' || response.tx.chargeResponse == '0') {
+              // redirect to a success page
+
+            } else {
+              // redirect to a failure page.
+              
+            }
+          }
+        });
+      } else if(plan == 'premium'){
+        // getpaidSetup is Rave's inline script function. it holds the payment data to pass to Rave.
+        getpaidSetup({
+          PBFPubKey: PBFKey,
+          customer_email: email,
+          customer_firstname: fullName,
+          amount: 3500,
+          customer_phone: phone,
+          payment_method: "card,account,ussd",
+          country: "NG",
+          currency: "NGN",
+          txref: txRef, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
+          //integrity_hash: hashedValue, // pass the sha256 hashed value here.
+          onclose: function () { },
+          callback: function (response) {
+            flw_ref = response.tx.flwRef;// collect flwRef returned and pass to a 					server page to complete status check.
+            console.log("This is the response returned after a charge", response);
+            if (response.tx.chargeResponse == '00' || response.tx.chargeResponse == '0') {
+              // redirect to a success page
+              addPremiumPlan({ email: email })
+              console.log('done')
+            } else {
+              // redirect to a failure page.
+            }
+          }
+        });
       }
-    });
+   
+
   }//end of the else statement
   });
 

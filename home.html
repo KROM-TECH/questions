@@ -118,6 +118,19 @@
   <script src="./js/fireconfig.js"></script>
   <script src="./js/auth.js"></script>
 
+  <script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log(user)
+        if (user) {
+          user.getIdTokenResult().then(idTokenResult => {
+            if(idTokenResult.claims.plan == 'undefined'){
+              
+            }
+          })
+        }
+      });
+  </script>
+
 </body>
 
 </html>
