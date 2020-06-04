@@ -26,6 +26,11 @@ document.getElementById('googlein').addEventListener('click', function () {
     var user = result.user;
     console.log(user)
     // ...
+    if (user) {
+      window.location = './home.html'
+    }
+    else {
+    }
   }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -50,6 +55,11 @@ document.getElementById('facebookin').addEventListener('click', function () {
     var user = result.user;
     console.log(user)
     // ...
+    if (user) {
+      window.location = './home.html'
+    }
+    else {
+    }
   }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -72,8 +82,12 @@ document.getElementById('twitterin').addEventListener('click', function () {
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
-    console.log(user)
     // ...
+    if (user) {
+      window.location = './home.html'
+    }
+    else {
+    }
   }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -85,3 +99,11 @@ document.getElementById('twitterin').addEventListener('click', function () {
   });
 })
 
+//To automatically redirect the user after they signin using the firebase auth provider
+
+var user = firebase.auth().currentUser;
+if (user) {
+  window.location = './home.html'
+}
+else {
+}
