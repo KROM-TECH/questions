@@ -26,14 +26,13 @@ document.getElementById('coget').addEventListener('click', function (e) {
 
 
 function loadData(data) {
-  console.log(data)
   const html = `
 
 
               <li>
                 <div class="collapsible-header"><i class="material-icons">book</i>${data.title} <span
                     class="pur-text" style="margin-left: 50%;">${data.semester}</span></div>
-                <div class="collapsible-body"><span>${data.content}</span></div>
+                <div class="collapsible-body"><span >${data.content}</span></div>
               </li>
 
     `;
