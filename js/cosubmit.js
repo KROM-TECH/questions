@@ -11,7 +11,7 @@ cosub.addEventListener("click", function (e) {
 
   console.log(uni, fac, lev, ct, coc);
 
-  db.collection(`past_question`)
+  db.collection(`course_outline`)
     .doc(`${uni}`)
     .collection(`${fac}`)
     .doc(`${lev}`)
