@@ -10,7 +10,7 @@ document.getElementById('coget').addEventListener('click', function (e) {
   const lev = document.getElementById('level').value
 
 
-  db.collection(`${uni}`).doc(`${fac}`).collection(`${lev}`).get().then(function (querySnapshot) {
+  db.collection(`past_question`).doc(`${fac}`).collection(`${lev}`).get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       if (querySnapshot.empty) {
         courses.innerHTML = `<h4 class="center red-text">Oops, No result found</h4>`
